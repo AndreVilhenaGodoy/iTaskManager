@@ -26,6 +26,10 @@ class Tarefa {
     lista.appendChild(minhaData);
     lista.appendChild(checkbox);
 
+    checkbox.addEventListener("change", () => {
+        lista.classList.toggle("concluida")
+    })
+
     return lista;
   }
 }

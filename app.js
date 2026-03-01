@@ -18,6 +18,9 @@ var Tarefa = /** @class */ (function () {
         lista.appendChild(minhaDescricao);
         lista.appendChild(minhaData);
         lista.appendChild(checkbox);
+        checkbox.addEventListener("change", function () {
+            lista.classList.toggle("concluida");
+        });
         return lista;
     };
     return Tarefa;
