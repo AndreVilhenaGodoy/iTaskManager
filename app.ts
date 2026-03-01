@@ -8,6 +8,26 @@ class Tarefa {
     this.descricao = descricaoRecebida;
     this.data = new Date();
   }
+
+  renderizar() {
+    const lista = document.createElement("li");
+    const meuTitulo = document.createElement("h3");
+    const minhaDescricao = document.createElement("p");
+    const minhaData = document.createElement("small");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
+    meuTitulo.innerText = this.titulo;
+    minhaDescricao.innerText = this.descricao;
+    minhaData.innerText = `Criado em: ${this.data.toLocaleString()}`;
+
+    lista.appendChild(meuTitulo);
+    lista.appendChild(minhaDescricao);
+    lista.appendChild(minhaData);
+    lista.appendChild(checkbox);
+
+    return lista;
+  }
 }
 
 const inputTitulo = document.getElementById("input-titulo") as HTMLInputElement;
@@ -23,5 +43,8 @@ btnAdicionar.addEventListener("click", () => {
   const tituloDigitado = inputTitulo.value;
   const descricaoDigitada = inputDescricao.value;
   const novaTarefa = new Tarefa(tituloDigitado, descricaoDigitada);
-  console.log(novaTarefa);
+
+  const cardHtmlDaTarefa = novaTarefa.renderizar();
+
+  listaTarefas.appendChild(cardHtmlDaTarefa);
 });
