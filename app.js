@@ -11,15 +11,22 @@ var Tarefa = /** @class */ (function () {
         var minhaData = document.createElement("small");
         var checkbox = document.createElement("input");
         checkbox.type = "checkbox";
+        var btnDeletar = document.createElement("button");
         meuTitulo.innerText = this.titulo;
         minhaDescricao.innerText = this.descricao;
         minhaData.innerText = "Criado em: ".concat(this.data.toLocaleString());
+        btnDeletar.innerText = "Deletar";
+        btnDeletar.classList.add("btn-deletar");
         lista.appendChild(meuTitulo);
         lista.appendChild(minhaDescricao);
         lista.appendChild(minhaData);
         lista.appendChild(checkbox);
+        lista.appendChild(btnDeletar);
         checkbox.addEventListener("change", function () {
             lista.classList.toggle("concluida");
+        });
+        btnDeletar.addEventListener("click", function () {
+            lista.remove();
         });
         return lista;
     };
